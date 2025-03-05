@@ -1,0 +1,42 @@
+{
+  "name": "@supernaut/next-image-storyblok-loader",
+  "version": "1.0.0",
+  "repository": "https://github.com/supernaut/next-image-storyblok-loader.git",
+  "author": "Johannes Axner <johannes@axner.io>",
+  "description": "Storyblok image loader for the Next.js Image component",
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "lint": "biome check **/*.ts",
+    "lint:fix": "biome check --write **/*.ts"
+  },
+  "keywords": ["nextjs", "image", "storyblok", "loader"],
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "files": ["dist"],
+  "main": "dist/index.mjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "volta": {
+    "node": "22.14.0",
+    "pnpm": "10.5.2"
+  },
+  "peerDependencies": {
+    "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.13.9",
+    "lefthook": "^1.11.2",
+    "next": "^15.2.1",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
