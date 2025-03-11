@@ -19,7 +19,7 @@
   },
   "keywords": ["nextjs", "image", "storyblok", "loader"],
   "license": "ISC",
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.6.2",
   "exports": {
     ".": "./dist/lib/storyblok-image-loader.mjs",
     "./get-loader": "./src/lib/get-storyblok-image-loader.ts",
@@ -31,7 +31,7 @@
   },
   "volta": {
     "node": "22.14.0",
-    "pnpm": "9.15.9"
+    "pnpm": "10.6.2"
   },
   "peerDependencies": {
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0",

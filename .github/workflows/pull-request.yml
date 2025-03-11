@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   commitlint:
     runs-on: ubuntu-24.04
+    env:
+      COREPACK_INTEGRITY_KEYS: 0
     steps:
       - uses: actions/checkout@v4
         with:
