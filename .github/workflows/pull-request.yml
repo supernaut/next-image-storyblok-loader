@@ -25,7 +25,7 @@ jobs:
           node-version: ${{ steps.volta.outputs.node_version }}
           cache: pnpm
       - name: Install npm dependencies
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
       - name: Validate current commit (last commit) with commitlint
         if: github.event_name == 'push'
         run: pnpm commitlint --last --verbose
