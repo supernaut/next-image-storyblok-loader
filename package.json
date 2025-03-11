@@ -9,7 +9,13 @@
     "build": "tsup",
     "build:watch": "tsup --watch",
     "lint": "biome check **/*.ts",
-    "lint:fix": "biome check --write **/*.ts"
+    "lint:fix": "biome check --write **/*.ts",
+    "cz": "pnpm dlx czg"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   },
   "keywords": ["nextjs", "image", "storyblok", "loader"],
   "license": "ISC",
@@ -30,7 +36,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@types/node": "^22.13.9",
+    "cz-git": "^1.11.1",
     "lefthook": "^1.11.2",
     "next": "^15.2.1",
     "prop-types": "^15.8.1",
