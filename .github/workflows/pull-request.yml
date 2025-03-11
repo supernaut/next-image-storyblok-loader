@@ -1,0 +1,31 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get node version from volta
+        id: volta
+        run: 
+          - echo node_version=$(jq -r '.volta.node' package.json) >> $GITHUB_OUTPUT
+          - echo pnpm_version=$(jq -r '.volta.pnpm' package.json) >> $GITHUB_OUTPUT
+      - name: Enable pnpm with corepack
+        run: corepack enable && corepack prepare pnpm@${{ steps.volta.outputs.pnpm_version }} --activate
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.volta.outputs.node_version }}
+          cache: pnpm
+      - name: Install npm dependencies
+        run: pnpm ci
+      - name: Validate current commit (last commit) with commitlint
+        if: github.event_name == 'push'
+        run: pnpm commitlint --last --verbose
+      - name: Validate PR commits with commitlint
+        if: github.event_name == 'pull_request'
+        run: pnpm commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
