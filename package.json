@@ -1,5 +1,6 @@
 {
   "name": "@supernaut/next-image-storyblok-loader",
+  "type": "module",
   "version": "1.0.0",
   "description": "Storyblok image loader for the Next.js Image component",
   "keywords": ["nextjs", "image", "storyblok", "loader", "typescript", "react"],
@@ -51,11 +52,23 @@
     "dev": "tsup --watch",
     "cz": "pnpm dlx czg"
   },
-  "config": { "commitizen": { "path": "node_modules/cz-git" } },
-  "packageManager": "pnpm@10.6.2",
-  "engines": { "node": ">=18.0.0", "pnpm": ">=8.0.0" },
-  "publishConfig": { "access": "public" },
-  "volta": { "node": "22.14.0", "pnpm": "10.6.2" },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "packageManager": "pnpm@10.11.1",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "volta": {
+    "node": "22.16.0",
+    "pnpm": "10.11.1"
+  },
   "peerDependencies": {
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
     "react": "^18.0.0 || ^19.0.0",

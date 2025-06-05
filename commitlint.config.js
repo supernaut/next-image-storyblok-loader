@@ -1,6 +1,7 @@
 import { defineConfig } from "cz-git";
 
 export default defineConfig({
+  extends: ["@commitlint/config-conventional"],
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
   },
