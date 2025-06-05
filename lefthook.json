@@ -32,5 +32,12 @@
         "stage_fixed": true
       }
     }
+  },
+  "pre-push": {
+    "commands": {
+      "test": {
+        "run": "pnpm test:run"
+      }
+    }
   }
 }
