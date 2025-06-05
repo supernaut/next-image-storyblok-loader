@@ -30,6 +30,19 @@ describe("getStoryblokImageFilename", () => {
       });
     });
 
+    it("should parse focus from URL string and assign to options", () => {
+      const src =
+        "https://a.storyblok.com/f/123456/m/800x600/filters:focal(100x200:300x400)/image.jpg";
+      const result = getStoryblokImageFilename(src);
+
+      expect(result.filename).toBe("https://a.storyblok.com/f/123456");
+      expect(result.options.focus).toBe("100x200:300x400");
+      expect(result.options.resize).toEqual({
+        height: 600,
+        width: 800,
+      });
+    });
+
     it("should merge existing options with parsed options", () => {
       const src =
         "https://a.storyblok.com/f/123456/m/800x600/filters:format(webp)/image.jpg";

@@ -10,6 +10,7 @@ export default defineConfig({
         "**/*.spec.ts",
         "**/*.config.{js,mjs}",
         "src/**/index.ts",
+        "src/types/",
         "vitest.config.ts",
         "tsup.config.ts",
       ],

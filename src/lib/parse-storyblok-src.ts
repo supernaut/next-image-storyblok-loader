@@ -3,6 +3,7 @@ import type { StoryblokImageFormat } from "../types/storyblok-image-format";
 import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
 import type { StoryblokImageResize } from "../types/storyblok-image-resize";
 
+import { StoryblokImageFocus } from "../types/storyblok-image-focus";
 import { getStoryblokSrcHost } from "./get-storyblok-src-host";
 
 export function parseStoryblokSrc(
@@ -32,6 +33,7 @@ export function parseStoryblokSrc(
       width: Number.parseInt(width, 10),
     };
   }
+  const focalPattern = /focal\((\d+)x(\d+):(\d+)x(\d+)\)/;
   const filters = parts
     .find((part) => part.startsWith("filters:"))
     ?.substring(8)
@@ -46,9 +48,13 @@ export function parseStoryblokSrc(
   const format = formatFilter
     ? (formatFilter?.replace(/format\((.+)\)/, "$1") as StoryblokImageFormat)
     : undefined;
-  const focus = focalFilter
-    ? focalFilter?.replace(/focal\((.+?)\)/, "$1")
-    : undefined;
+  const focus: StoryblokImageFocus | undefined =
+    focalFilter && focalPattern.test(focalFilter)
+      ? (focalFilter?.replace(
+          focalPattern,
+          "$1x$2:$3x$4",
+        ) as StoryblokImageFocus)
+      : undefined;
 
   if (typeof resize !== "undefined") {
     result.resize = resize;

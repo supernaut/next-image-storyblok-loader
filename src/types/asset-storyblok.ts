@@ -1,8 +1,10 @@
+import { StoryblokImageFocus } from "./storyblok-image-focus";
+
 export type AssetStoryblok = {
   alt?: string;
   copyright?: string;
   filename: string;
-  focus?: string;
+  focus?: StoryblokImageFocus;
   id: number;
   name: string;
   title?: string;
