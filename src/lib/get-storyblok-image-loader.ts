@@ -1,7 +1,9 @@
 import type { ImageLoader } from "next/image";
+
+import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
+
 import { getStoryblokSrc } from "./get-storyblok-src";
 import { parseStoryblokSrc } from "./parse-storyblok-src";
-import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
 
 /**
  * Get a Storyblok image loader for Next.js Image component.
@@ -11,7 +13,7 @@ import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loade
 export function getStoryblokImageLoader(
   options: StoryblokImageLoaderOptions = {},
 ): ImageLoader {
-  return ({ src, width: inputWidth, quality }) => {
+  return ({ quality, src, width: inputWidth }) => {
     const url = new URL(src);
 
     const parsed = parseStoryblokSrc(src);

@@ -17,8 +17,7 @@ package-lock.json
 
 # Config files
 tsconfig.json
-tsup.config.ts
-biome.json
+tsup.config.ts 
 commitlint.config.js
 lefthook.json
 renovate.json

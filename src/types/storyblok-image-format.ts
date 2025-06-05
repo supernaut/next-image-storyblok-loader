@@ -1,1 +1,1 @@
-export type StoryblokImageFormat = "jpeg" | "png" | "webp" | "avif";
+export type StoryblokImageFormat = "avif" | "jpeg" | "png" | "webp";

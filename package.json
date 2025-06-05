@@ -3,7 +3,14 @@
   "type": "module",
   "version": "1.0.1",
   "description": "Storyblok image loader for the Next.js Image component",
-  "keywords": ["nextjs", "image", "storyblok", "loader", "typescript", "react"],
+  "keywords": [
+    "nextjs",
+    "image",
+    "storyblok",
+    "loader",
+    "typescript",
+    "react"
+  ],
   "homepage": "https://github.com/supernaut/next-image-storyblok-loader#readme",
   "bugs": {
     "url": "https://github.com/supernaut/next-image-storyblok-loader/issues"
@@ -40,7 +47,12 @@
       "require": "./dist/storyblok-image-loader-options.js"
     }
   },
-  "files": ["dist", "readme.md", "LICENSE", "CHANGELOG.md"],
+  "files": [
+    "dist",
+    "readme.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup",
@@ -75,17 +87,22 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.28.0",
     "@types/node": "^22.13.9",
     "cz-git": "^1.11.1",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-perfectionist": "^4.14.0",
     "lefthook": "^1.11.2",
     "next": "^15.2.1",
+    "prettier": "3.5.3",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.33.1"
   }
 }

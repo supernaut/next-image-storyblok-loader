@@ -1,22 +1,12 @@
-import type { StoryblokImageResize } from "./storyblok-image-resize";
 import type { StoryblokImageFormat } from "./storyblok-image-format";
+import type { StoryblokImageResize } from "./storyblok-image-resize";
 
 export type StoryblokImageLoaderOptions = {
-  resize?: StoryblokImageResize;
-  format?: StoryblokImageFormat;
-  quality?: number;
-  smart?: boolean;
   focus?: string;
-  prefix?: string;
+  format?: StoryblokImageFormat;
   host?: string;
+  prefix?: string;
+  quality?: number;
+  resize?: StoryblokImageResize;
+  smart?: boolean;
 };
-
-export const StoryblokImageLoaderOptionsKeys: string[] = [
-  "resize",
-  "format",
-  "quality",
-  "smart",
-  "focus",
-  "prefix",
-  "host",
-];

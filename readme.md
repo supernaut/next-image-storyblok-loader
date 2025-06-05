@@ -1,5 +1,3 @@
-[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
-
 # Next Image Storyblok Loader
 
 An image loader for the [Next.js Image component](https://nextjs.org/docs/pages/api-reference/components/image) to load images from [Storyblok](https://www.storyblok.com/).

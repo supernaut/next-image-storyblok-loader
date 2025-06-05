@@ -1,5 +1,6 @@
 import type { AssetStoryblok } from "../types/asset-storyblok";
 import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
+
 import { getStoryblokImageFilename } from "./get-storyblok-image-filename";
 import { getStoryblokImageFilters } from "./get-storyblok-image-filters";
 import { getStoryblokImageSize } from "./get-storyblok-image-size";
@@ -13,7 +14,7 @@ import { imgSrcIsStoryblok } from "./img-src-is-storyblok";
  */
 export function getStoryblokSrc(
   image: AssetStoryblok | string | undefined,
-  imageOptions?: StoryblokImageLoaderOptions | null,
+  imageOptions?: null | StoryblokImageLoaderOptions,
 ): string | undefined {
   // Exit if provided image is a Storyblok asset with no filename
   if (typeof image !== "string" && !image?.filename) {

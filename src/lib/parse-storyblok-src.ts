@@ -2,6 +2,7 @@ import type { ParsedStoryblokSrc } from "../types/parsed-storyblok-src";
 import type { StoryblokImageFormat } from "../types/storyblok-image-format";
 import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
 import type { StoryblokImageResize } from "../types/storyblok-image-resize";
+
 import { getStoryblokSrcHost } from "./get-storyblok-src-host";
 
 export function parseStoryblokSrc(

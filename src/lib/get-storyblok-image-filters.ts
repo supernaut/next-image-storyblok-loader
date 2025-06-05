@@ -1,4 +1,5 @@
 import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
+
 import { getStoryblokImageQuality } from "./get-storyblok-image-quality";
 
 export function getStoryblokImageFilters(
