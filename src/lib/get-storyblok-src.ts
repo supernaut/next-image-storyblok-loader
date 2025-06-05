@@ -23,7 +23,7 @@ export function getStoryblokSrc(
   // Exit if image is a string and not a Storyblok asset URL
   if (
     typeof image === "string" &&
-    !imgSrcIsStoryblok(image, imageOptions.host)
+    !imgSrcIsStoryblok(image, imageOptions?.host)
   ) {
     return image;
   }
@@ -50,7 +50,9 @@ export function getStoryblokSrc(
   }
 
   // Add filters if set
-  parts.push(getStoryblokImageFilters({ ...options }));
+  if (typeof options !== "undefined") {
+    parts.push(getStoryblokImageFilters(options));
+  }
 
   // Join parts into a path string
   const src = parts.filter(Boolean).join("/");

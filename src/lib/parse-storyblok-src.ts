@@ -16,7 +16,10 @@ export function parseStoryblokSrc(
 
   const parts = url.pathname.split("/");
   const path = parts.slice(0, 6).join("/");
-  const filename = new URL(path, url).href.replace(/\/m\b\/?.*$/, "");
+  const result: ParsedStoryblokSrc = {
+    filename: new URL(path, url).href.replace(/\/m\b\/?.*$/, ""),
+  };
+
   const size = /^\d+x\d+$/.test(parts[parts.indexOf("m") + 1])
     ? parts[parts.indexOf("m") + 1]
     : undefined;
@@ -46,11 +49,18 @@ export function parseStoryblokSrc(
     ? focalFilter?.replace(/focal\((.+?)\)/, "$1")
     : undefined;
 
-  return {
-    filename,
-    focus,
-    format,
-    quality,
-    resize,
-  };
+  if (typeof resize !== "undefined") {
+    result.resize = resize;
+  }
+  if (typeof quality !== "undefined") {
+    result.quality = quality;
+  }
+  if (typeof format !== "undefined") {
+    result.format = format;
+  }
+  if (typeof focus !== "undefined") {
+    result.focus = focus;
+  }
+
+  return result;
 }

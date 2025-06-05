@@ -1,4 +1,4 @@
-export interface AssetStoryblok {
+export type AssetStoryblok = {
   alt?: string;
   copyright?: string;
   id: number;
@@ -6,4 +6,4 @@ export interface AssetStoryblok {
   name: string;
   title?: string;
   focus?: string;
-}
+};

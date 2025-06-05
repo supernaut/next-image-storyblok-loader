@@ -1,7 +1,7 @@
 import type { StoryblokImageResize } from "./storyblok-image-resize";
 import type { StoryblokImageFormat } from "./storyblok-image-format";
 
-export interface StoryblokImageLoaderOptions {
+export type StoryblokImageLoaderOptions = {
   resize?: StoryblokImageResize;
   format?: StoryblokImageFormat;
   quality?: number;
@@ -9,4 +9,14 @@ export interface StoryblokImageLoaderOptions {
   focus?: string;
   prefix?: string;
   host?: string;
-}
+};
+
+export const StoryblokImageLoaderOptionsKeys: string[] = [
+  "resize",
+  "format",
+  "quality",
+  "smart",
+  "focus",
+  "prefix",
+  "host",
+];
