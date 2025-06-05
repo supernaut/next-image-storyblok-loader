@@ -35,7 +35,7 @@ export function parseStoryblokSrc(
   const filters = parts
     .find((part) => part.startsWith("filters:"))
     ?.substring(8)
-    .replace(/:([a-z])/, "__$1")
+    .replace(/:([a-z])/g, "__$1")
     .split("__");
   const qualityFilter = filters?.find((filter) => filter.startsWith("quality"));
   const focalFilter = filters?.find((filter) => filter.startsWith("focal"));

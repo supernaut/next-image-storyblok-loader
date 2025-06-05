@@ -17,5 +17,5 @@ export function getStoryblokImageFilters(
     filters.push(`focal(${options.focus})`);
   }
   const filtersString = filters.filter(Boolean).join(":");
-  return filtersString ? `filters: ${filtersString}` : undefined;
+  return filtersString ? `filters:${filtersString}` : undefined;
 }
