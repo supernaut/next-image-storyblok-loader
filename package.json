@@ -3,14 +3,7 @@
   "type": "module",
   "version": "1.0.1",
   "description": "Storyblok image loader for the Next.js Image component",
-  "keywords": [
-    "nextjs",
-    "image",
-    "storyblok",
-    "loader",
-    "typescript",
-    "react"
-  ],
+  "keywords": ["nextjs", "image", "storyblok", "loader", "typescript", "react"],
   "homepage": "https://github.com/supernaut/next-image-storyblok-loader#readme",
   "bugs": {
     "url": "https://github.com/supernaut/next-image-storyblok-loader/issues"
@@ -47,12 +40,7 @@
       "require": "./dist/storyblok-image-loader-options.js"
     }
   },
-  "files": [
-    "dist",
-    "readme.md",
-    "LICENSE",
-    "CHANGELOG.md"
-  ],
+  "files": ["dist", "readme.md", "LICENSE", "CHANGELOG.md"],
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup",
