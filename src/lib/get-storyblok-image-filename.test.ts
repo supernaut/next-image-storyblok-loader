@@ -47,11 +47,12 @@ describe("getStoryblokImageFilename", () => {
 
   describe("with AssetStoryblok input", () => {
     it("should handle AssetStoryblok object with filename", () => {
-      const asset: AssetStoryblok = {
+      const asset: Partial<AssetStoryblok> = {
         alt: "Test image",
         filename: "https://a.storyblok.com/f/123456/image.jpg",
+        name: "image.jpg",
       };
-      const result = getStoryblokImageFilename(asset);
+      const result = getStoryblokImageFilename(asset as AssetStoryblok);
 
       expect(result.filename).toBe(
         "https://a.storyblok.com/f/123456/image.jpg",
@@ -60,12 +61,12 @@ describe("getStoryblokImageFilename", () => {
     });
 
     it("should handle AssetStoryblok object with focus", () => {
-      const asset: AssetStoryblok = {
+      const asset: Partial<AssetStoryblok> = {
         alt: "Test image",
         filename: "https://a.storyblok.com/f/123456/image.jpg",
         focus: "100x100:200x200",
       };
-      const result = getStoryblokImageFilename(asset);
+      const result = getStoryblokImageFilename(asset as AssetStoryblok);
 
       expect(result.filename).toBe(
         "https://a.storyblok.com/f/123456/image.jpg",
@@ -74,12 +75,14 @@ describe("getStoryblokImageFilename", () => {
     });
 
     it("should merge AssetStoryblok focus with existing options", () => {
-      const asset: AssetStoryblok = {
+      const asset: Partial<AssetStoryblok> = {
         alt: "Test image",
         filename: "https://a.storyblok.com/f/123456/image.jpg",
         focus: "100x100:200x200",
       };
-      const result = getStoryblokImageFilename(asset, { quality: 80 });
+      const result = getStoryblokImageFilename(asset as AssetStoryblok, {
+        quality: 80,
+      });
 
       expect(result.filename).toBe(
         "https://a.storyblok.com/f/123456/image.jpg",
@@ -89,11 +92,11 @@ describe("getStoryblokImageFilename", () => {
     });
 
     it("should handle AssetStoryblok object without filename", () => {
-      const asset: AssetStoryblok = {
+      const asset: Partial<AssetStoryblok> = {
         alt: "Test image",
         focus: "100x100:200x200",
       };
-      const result = getStoryblokImageFilename(asset);
+      const result = getStoryblokImageFilename(asset as AssetStoryblok);
 
       expect(result.filename).toBe("");
       expect(result.options.focus).toBe("100x100:200x200");

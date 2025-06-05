@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import type { StoryblokImageResize } from "../types/storyblok-image-resize";
+
 import { getStoryblokImageSize } from "./get-storyblok-image-size";
 import { STORYBLOK_IMAGE_SIZE_LIMIT } from "./storyblok-image-size-limit";
 
@@ -13,7 +15,7 @@ describe("getStoryblokImageSize", () => {
 
   it("should return undefined when width is not provided", () => {
     const resize = { height: 600 };
-    const result = getStoryblokImageSize(resize);
+    const result = getStoryblokImageSize(resize as StoryblokImageResize);
 
     expect(result).toBeUndefined();
   });
