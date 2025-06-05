@@ -168,5 +168,82 @@ describe("getStoryblokSrc", () => {
 
       expect(result).toBeUndefined();
     });
+
+    it("should handle prefix option", () => {
+      const asset: AssetStoryblok = {
+        filename: "https://a.storyblok.com/f/123456/image.jpg",
+        id: 123456,
+        name: "image.jpg",
+      };
+
+      const result = getStoryblokSrc(asset, {
+        prefix: "/custom-prefix",
+        resize: { height: 600, width: 800 },
+      });
+
+      expect(result).toBe("/custom-prefix/f/123456/image.jpg/m/800x600/smart");
+    });
+
+    it("should handle prefix with double slashes", () => {
+      const asset: AssetStoryblok = {
+        filename: "https://a.storyblok.com/f/123456/image.jpg",
+        id: 123456,
+        name: "image.jpg",
+      };
+
+      const result = getStoryblokSrc(asset, {
+        prefix: "/custom-prefix/",
+      });
+
+      expect(result).toBe("/custom-prefix/f/123456/image.jpg/m");
+    });
+
+    it("should prioritize prefix option over environment variable", () => {
+      const originalEnv = process.env.STORYBLOK_IMAGE_LOADER_PREFIX;
+      process.env.STORYBLOK_IMAGE_LOADER_PREFIX = "/env-prefix";
+
+      try {
+        const asset: AssetStoryblok = {
+          filename: "https://a.storyblok.com/f/123456/image.jpg",
+          id: 123456,
+          name: "image.jpg",
+        };
+
+        const result = getStoryblokSrc(asset, {
+          prefix: "/option-prefix",
+        });
+
+        expect(result).toBe("/option-prefix/f/123456/image.jpg/m");
+      } finally {
+        if (originalEnv !== undefined) {
+          process.env.STORYBLOK_IMAGE_LOADER_PREFIX = originalEnv;
+        } else {
+          delete process.env.STORYBLOK_IMAGE_LOADER_PREFIX;
+        }
+      }
+    });
+
+    it("should use environment variable when no prefix option provided", () => {
+      const originalEnv = process.env.STORYBLOK_IMAGE_LOADER_PREFIX;
+      process.env.STORYBLOK_IMAGE_LOADER_PREFIX = "/env-prefix";
+
+      try {
+        const asset: AssetStoryblok = {
+          filename: "https://a.storyblok.com/f/123456/image.jpg",
+          id: 123456,
+          name: "image.jpg",
+        };
+
+        const result = getStoryblokSrc(asset);
+
+        expect(result).toBe("/env-prefix/f/123456/image.jpg/m");
+      } finally {
+        if (originalEnv !== undefined) {
+          process.env.STORYBLOK_IMAGE_LOADER_PREFIX = originalEnv;
+        } else {
+          delete process.env.STORYBLOK_IMAGE_LOADER_PREFIX;
+        }
+      }
+    });
   });
 });

@@ -8,6 +8,8 @@ export default defineConfig({
         "dist/",
         "**/*.test.ts",
         "**/*.spec.ts",
+        "**/*.config.{js,mjs}",
+        "src/**/index.ts",
         "vitest.config.ts",
         "tsup.config.ts",
       ],

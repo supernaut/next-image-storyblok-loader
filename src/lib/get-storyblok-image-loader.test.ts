@@ -181,4 +181,46 @@ describe("getStoryblokImageLoader", () => {
       expect(resultLarge).toContain("3000x");
     });
   });
+
+  describe("edge cases", () => {
+    it("should handle URLs with existing resize information", () => {
+      const loader = getStoryblokImageLoader();
+      const result = loader({
+        quality: 90,
+        src: "https://a.storyblok.com/f/88751/2600x1214/77a80a3235/hero-visual-editor-ai-blue.png/m/1000x466",
+        width: 400,
+      });
+
+      // Should maintain aspect ratio from existing resize
+      expect(result).toBe(
+        "https://a.storyblok.com/f/88751/2600x1214/2c6ef16b8f/hero-visual-editor.png/m/400x186/filters:quality(90)",
+      );
+    });
+
+    it("should handle URLs with zero height in resize calculation", () => {
+      const loader = getStoryblokImageLoader();
+      const result = loader({
+        src: "https://a.storyblok.com/f/88751/2600x1214/77a80a3235/hero-visual-editor-ai-blue.png/m/2600x0",
+        width: 400,
+      });
+
+      // When original dimensions include zero height, should calculate from aspect ratio
+      expect(result).toBe(
+        "https://a.storyblok.com/f/88751/2600x1214/2c6ef16b8f/hero-visual-editor.png/m/400x186",
+      );
+    });
+
+    it("should handle invalid dimension parsing", () => {
+      const loader = getStoryblokImageLoader();
+      const result = loader({
+        src: "https://a.storyblok.com/f/88751/800x800/b22306649b/henning-heppner.jpeg/m/96x96",
+        width: 400,
+      });
+
+      // Should calculate proper aspect ratio from valid dimensions
+      expect(result).toBe(
+        "https://a.storyblok.com/f/88751/2600x1214/2c6ef16b8f/hero-visual-editor.png/m/400x400",
+      );
+    });
+  });
 });

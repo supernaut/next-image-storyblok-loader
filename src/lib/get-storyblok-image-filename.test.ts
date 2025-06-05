@@ -121,5 +121,28 @@ describe("getStoryblokImageFilename", () => {
     it("should handle empty string input", () => {
       expect(() => getStoryblokImageFilename("")).toThrow("Invalid URL");
     });
+
+    it("should handle string URL with resize information", () => {
+      const src =
+        "https://a.storyblok.com/f/88751/2600x1214/77a80a3235/hero-visual-editor-ai-blue.png/m/2600x0/";
+      const result = getStoryblokImageFilename(src);
+
+      expect(result.filename).toBe(
+        "https://a.storyblok.com/f/88751/2600x1214/77a80a3235/hero-visual-editor-ai-blue.png",
+      );
+      expect(result.options.resize).toEqual({ height: 0, width: 2600 });
+    });
+
+    it("should preserve existing options when parsing string URL with resize", () => {
+      const src =
+        "https://a.storyblok.com/f/88751/1667x1114/3af9f04f81/nrf-cs-masked.png/m/1667x0/";
+      const result = getStoryblokImageFilename(src, { quality: 90 });
+
+      expect(result.filename).toBe(
+        "https://a.storyblok.com/f/88751/1667x1114/3af9f04f81/nrf-cs-masked.png",
+      );
+      expect(result.options.resize).toEqual({ height: 0, width: 1667 });
+      expect(result.options.quality).toBe(90);
+    });
   });
 });
