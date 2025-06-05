@@ -9,7 +9,7 @@ import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loade
  * @returns Image loader function
  */
 export function getStoryblokImageLoader(
-  options?: StoryblokImageLoaderOptions,
+  options: StoryblokImageLoaderOptions = {},
 ): ImageLoader {
   return ({ src, width: inputWidth, quality }) => {
     const url = new URL(src);
@@ -35,12 +35,13 @@ export function getStoryblokImageLoader(
       width: inputWidth,
     };
 
-    return (
-      getStoryblokSrc(src, {
-        ...(options || {}),
-        quality,
-        resize,
-      }) || src
-    );
+    if (typeof quality !== "undefined") {
+      options.quality = quality;
+    }
+    if (typeof resize !== "undefined") {
+      options.resize = resize;
+    }
+
+    return getStoryblokSrc(src, options) || src;
   };
 }

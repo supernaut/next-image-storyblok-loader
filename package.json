@@ -1,38 +1,61 @@
 {
   "name": "@supernaut/next-image-storyblok-loader",
   "version": "1.0.0",
-  "repository": "https://github.com/supernaut/next-image-storyblok-loader.git",
-  "author": "Johannes Axner <johannes@axner.io>",
   "description": "Storyblok image loader for the Next.js Image component",
+  "keywords": ["nextjs", "image", "storyblok", "loader", "typescript", "react"],
+  "homepage": "https://github.com/supernaut/next-image-storyblok-loader#readme",
+  "bugs": {
+    "url": "https://github.com/supernaut/next-image-storyblok-loader/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supernaut/next-image-storyblok-loader.git"
+  },
+  "license": "ISC",
+  "author": "Johannes Axner <johannes@axner.io>",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./get-loader": {
+      "types": "./dist/get-storyblok-image-loader.d.ts",
+      "import": "./dist/get-storyblok-image-loader.mjs",
+      "require": "./dist/get-storyblok-image-loader.js"
+    },
+    "./img-src-is-storyblok": {
+      "types": "./dist/img-src-is-storyblok.d.ts",
+      "import": "./dist/img-src-is-storyblok.mjs",
+      "require": "./dist/img-src-is-storyblok.js"
+    },
+    "./types": {
+      "types": "./dist/storyblok-image-loader-options.d.ts",
+      "import": "./dist/storyblok-image-loader-options.mjs",
+      "require": "./dist/storyblok-image-loader-options.js"
+    }
+  },
+  "files": ["dist", "readme.md", "LICENSE", "CHANGELOG.md"],
   "scripts": {
     "prepublishOnly": "pnpm build",
     "build": "tsup",
     "build:watch": "tsup --watch",
     "lint": "biome check **/*.ts",
     "lint:fix": "biome check --write **/*.ts",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
     "cz": "pnpm dlx czg"
   },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
-  },
-  "keywords": ["nextjs", "image", "storyblok", "loader"],
-  "license": "ISC",
+  "config": { "commitizen": { "path": "node_modules/cz-git" } },
   "packageManager": "pnpm@10.6.2",
-  "exports": {
-    ".": "./dist/lib/storyblok-image-loader.mjs",
-    "./get-loader": "./src/lib/get-storyblok-image-loader.ts",
-    "./img-src-is-storyblok": "./src/lib/img-src-is-storyblok.ts",
-    "./options": "./src/types/storyblok-image-loader-options.ts"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "volta": {
-    "node": "22.14.0",
-    "pnpm": "10.6.2"
-  },
+  "engines": { "node": ">=18.0.0", "pnpm": ">=8.0.0" },
+  "publishConfig": { "access": "public" },
+  "volta": { "node": "22.14.0", "pnpm": "10.6.2" },
   "peerDependencies": {
     "next": "^13.0.0 || ^14.0.0 || ^15.0.0",
     "react": "^18.0.0 || ^19.0.0",

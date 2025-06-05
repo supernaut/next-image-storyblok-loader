@@ -1,4 +1,4 @@
-export interface StoryblokImageResize {
+export type StoryblokImageResize = {
   width: number;
   height?: number;
-}
+};
