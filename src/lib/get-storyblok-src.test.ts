@@ -245,5 +245,16 @@ describe("getStoryblokSrc", () => {
         }
       }
     });
+
+    it("should fail when asset lacks filename value", () => {
+      const asset: Partial<AssetStoryblok> = {
+        id: 123456,
+        name: "image.jpg",
+      };
+
+      const result = getStoryblokSrc(asset as AssetStoryblok);
+
+      expect(result).toBe(undefined);
+    });
   });
 });

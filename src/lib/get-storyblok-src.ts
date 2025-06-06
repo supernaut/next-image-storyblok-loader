@@ -16,11 +16,6 @@ export function getStoryblokSrc(
   image: AssetStoryblok | string | undefined,
   imageOptions?: null | StoryblokImageLoaderOptions,
 ): string | undefined {
-  // Exit if provided image is a Storyblok asset with no filename
-  if (typeof image !== "string" && !image?.filename) {
-    return;
-  }
-
   // Exit if image is a string and not a Storyblok asset URL
   if (
     typeof image === "string" &&
