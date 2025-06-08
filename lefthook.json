@@ -1,15 +1,4 @@
 {
-  "prepare-commit-msg": {
-    "commands": {
-      "commitzen": {
-        "interactive": true,
-        "run": "pnpm dlx czg --hook",
-        "env": {
-          "LEFTHOOK": 0
-        }
-      }
-    }
-  },
   "commit-msg": {
     "commands": {
       "lint commit message": {
