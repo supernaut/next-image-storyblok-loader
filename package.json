@@ -68,8 +68,7 @@
     "clean": "rm -rf dist",
     "dev": "tsup --watch",
     "cz": "czg",
-    "format": "prettier --write .",
-    "version": "conventional-changelog -p angular && git add CHANGELOG.md"
+    "format": "prettier --write ."
   },
   "config": {
     "commitizen": {
@@ -107,8 +106,8 @@
     "eslint-plugin-perfectionist": "^4.14.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "lefthook": "^1.11.2",
-    "next": "^15.2.1",
+    "lefthook": "^1.11.13",
+    "next": "^15.3.3",
     "prettier": "3.5.3",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
