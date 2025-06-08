@@ -137,3 +137,13 @@ An optional overriding prefix can be set using the `STORYBLOK_IMAGE_LOADER_PREFI
 This is useful if you rewrite image requests to a pathname instead of a complete URL.
 
 Setting the `prefix` option to `/assets/storyblok` would change the generated `src` URL from `https://a.storyblok.com/f/88751/2600x1214/2c6ef16b8f/hero-visual-editor.png/m/2600x0/` to `/assets/storyblok/f/88751/2600x1214/2c6ef16b8f/hero-visual-editor.png/m/2600x0/`.
+
+## Release Flow
+
+1. Make changes
+2. Commit those changes
+3. Bump version in package.json
+4. conventional-changelog
+5. Commit package.json and CHANGELOG.md files
+6. Tag
+7. Push
