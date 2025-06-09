@@ -59,7 +59,7 @@ export function getStoryblokImageLoader(
     if (typeof quality !== "undefined") {
       options.quality = quality;
     }
-    if (inputWidth && typeof resize !== "undefined") {
+    if (inputWidth !== undefined && typeof resize !== "undefined") {
       options.resize = resize;
     }
 
