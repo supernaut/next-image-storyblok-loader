@@ -1,50 +1,11 @@
-# Changelog
+## <small>1.0.2 (2025-06-09)</small>
 
-All notable changes to this project will be documented in this file.
+- test: add tests (#2) ([882f6ca](https://github.com/supernaut/next-image-storyblok-loader/commit/882f6ca)), closes [#2](https://github.com/supernaut/next-image-storyblok-loader/issues/2)
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## 1.0.1 (2025-06-05)
 
-## [1.0.1] - 2025-06-05
+- refactor: split entry and use more modern config (#1) ([397551e](https://github.com/supernaut/next-image-storyblok-loader/commit/397551e)), closes [#1](https://github.com/supernaut/next-image-storyblok-loader/issues/1)
 
-### Changed
+## 1.0.0 (2025-03-05)
 
-- Refactored package structure to follow npm best practices
-- Updated TypeScript configuration for better compatibility
-- Improved package.json with proper exports, files, and metadata
-- Enhanced build configuration with dual ESM/CommonJS support
-- Updated .gitignore and .npmignore for better file filtering
-- Added proper engine requirements (Node.js >=18.0.0)
-- Added `sideEffects: false` for better tree-shaking support
-
-### Added
-
-- Comprehensive main index.ts export file
-- Additional type exports for better TypeScript integration
-- CHANGELOG.md file for version tracking
-- Better development scripts (type-check, clean, dev)
-
-## [1.0.0] - 2025-03-05
-
-### Added
-
-- Initial release of Storyblok image loader for Next.js
-- Support for Next.js Image component with Storyblok images
-- Configurable host and prefix options
-- TypeScript support with full type definitions
-- ESM and CommonJS compatibility
-- Basic image transformation support (resize, quality, format)
-
-### Features
-
-- `storyblokImageLoader` - Default image loader
-- `getStoryblokImageLoader` - Factory function for custom configuration
-- `imgSrcIsStoryblok` - Utility to check if image source is from Storyblok
-- Full TypeScript type definitions
-- Environment variable configuration support
-
-### Documentation
-
-- Comprehensive README with usage examples
-- API documentation for all exported functions and types
-- Configuration options documentation
+- feat: add basic functionality ([4d3c42d](https://github.com/supernaut/next-image-storyblok-loader/commit/4d3c42d))
