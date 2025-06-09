@@ -1,8 +1,8 @@
 import type { StoryblokImageLoaderOptions } from "./storyblok-image-loader-options";
 
-export type ParsedStoryblokSrc = Pick<
-  StoryblokImageLoaderOptions,
-  "quality" | "format" | "focus" | "resize"
-> & {
+export type ParsedStoryblokSrc = {
   filename: string;
-};
+} & Pick<
+  StoryblokImageLoaderOptions,
+  "focus" | "format" | "quality" | "resize"
+>;

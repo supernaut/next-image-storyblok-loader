@@ -1,0 +1,29 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      COREPACK_INTEGRITY_KEYS: 0
+      NODE_OPTIONS: --max_old_space_size=4096
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable pnpm with corepack
+        run: corepack enable && corepack prepare pnpm@latest-10 --activate
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.16.0
+          cache: pnpm
+          cache-dependency-path: "pnpm-lock.yaml"
+      - name: Install packages
+        run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}

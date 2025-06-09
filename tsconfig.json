@@ -23,7 +23,8 @@
     "removeComments": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["vitest/globals"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.*", "**/*.spec.*"]

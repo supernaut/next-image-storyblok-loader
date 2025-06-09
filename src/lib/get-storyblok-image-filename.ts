@@ -1,13 +1,11 @@
 import type { AssetStoryblok } from "../types/asset-storyblok";
-import {
-  StoryblokImageLoaderOptionsKeys,
-  type StoryblokImageLoaderOptions,
-} from "../types/storyblok-image-loader-options";
+import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
+
 import { parseStoryblokSrc } from "./parse-storyblok-src";
 
 export function getStoryblokImageFilename(
   image: AssetStoryblok | string | undefined,
-  imageOptions?: StoryblokImageLoaderOptions | null,
+  imageOptions?: null | StoryblokImageLoaderOptions,
 ) {
   let filename = "";
   const options: StoryblokImageLoaderOptions = imageOptions || {};

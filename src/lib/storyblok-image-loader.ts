@@ -1,4 +1,5 @@
 import type { ImageLoader } from "next/image";
+
 import { getStoryblokImageLoader } from "./get-storyblok-image-loader";
 
 /**

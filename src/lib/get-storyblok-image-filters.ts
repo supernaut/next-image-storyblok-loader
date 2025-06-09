@@ -1,4 +1,5 @@
 import type { StoryblokImageLoaderOptions } from "../types/storyblok-image-loader-options";
+
 import { getStoryblokImageQuality } from "./get-storyblok-image-quality";
 
 export function getStoryblokImageFilters(
@@ -16,5 +17,5 @@ export function getStoryblokImageFilters(
     filters.push(`focal(${options.focus})`);
   }
   const filtersString = filters.filter(Boolean).join(":");
-  return filtersString ? `filters: ${filtersString}` : undefined;
+  return filtersString ? `filters:${filtersString}` : undefined;
 }

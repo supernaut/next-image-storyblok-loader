@@ -1,15 +1,4 @@
 {
-  "prepare-commit-msg": {
-    "commands": {
-      "commitzen": {
-        "interactive": true,
-        "run": "pnpm dlx czg --hook",
-        "env": {
-          "LEFTHOOK": 0
-        }
-      }
-    }
-  },
   "commit-msg": {
     "commands": {
       "lint commit message": {
@@ -19,10 +8,24 @@
   },
   "pre-commit": {
     "commands": {
-      "check": {
-        "glob": "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}",
-        "run": "npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}",
+      "prettier": {
+        "parallel": false,
+        "glob": "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,md,yml,yaml,html,css,scss,less}",
+        "run": "pnpm prettier --write {staged_files}",
         "stage_fixed": true
+      },
+      "eslint": {
+        "parallel": false,
+        "glob": "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx}",
+        "run": "pnpm eslint --fix --quiet {staged_files}",
+        "stage_fixed": true
+      }
+    }
+  },
+  "pre-push": {
+    "commands": {
+      "test": {
+        "run": "pnpm test:run"
       }
     }
   }

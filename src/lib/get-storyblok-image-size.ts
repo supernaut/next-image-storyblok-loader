@@ -1,4 +1,5 @@
 import type { StoryblokImageResize } from "../types/storyblok-image-resize";
+
 import { STORYBLOK_IMAGE_SIZE_LIMIT } from "./storyblok-image-size-limit";
 
 export function getStoryblokImageSize(
@@ -8,7 +9,7 @@ export function getStoryblokImageSize(
     return;
   }
 
-  let { width, height = 0 } = resize;
+  let { height = 0, width } = resize;
 
   if (width > height && width > STORYBLOK_IMAGE_SIZE_LIMIT) {
     width = STORYBLOK_IMAGE_SIZE_LIMIT;
