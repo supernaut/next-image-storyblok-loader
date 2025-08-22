@@ -1,11 +1,13 @@
-## <small>1.0.2 (2025-06-09)</small>
+## [1.1.0](https://github.com/supernaut/next-image-storyblok-loader/compare/v1.0.2...v1.1.0) (2025-08-22)
 
-- test: add tests (#2) ([882f6ca](https://github.com/supernaut/next-image-storyblok-loader/commit/882f6ca)), closes [#2](https://github.com/supernaut/next-image-storyblok-loader/issues/2)
+### Bug Fixes
 
-## 1.0.1 (2025-06-05)
+- add build step to release pipeline ([c100279](https://github.com/supernaut/next-image-storyblok-loader/commit/c100279dd52043f018f1db825c2c11516821e832))
 
-- refactor: split entry and use more modern config (#1) ([397551e](https://github.com/supernaut/next-image-storyblok-loader/commit/397551e)), closes [#1](https://github.com/supernaut/next-image-storyblok-loader/issues/1)
+## [1.0.2](https://github.com/supernaut/next-image-storyblok-loader/compare/v1.0.0...v1.0.2) (2025-06-09)
 
-## 1.0.0 (2025-03-05)
+## [1.0.0](https://github.com/supernaut/next-image-storyblok-loader/compare/4d3c42d3b2bddba60f5d654c5e617a7b58073752...v1.0.0) (2025-03-05)
 
-- feat: add basic functionality ([4d3c42d](https://github.com/supernaut/next-image-storyblok-loader/commit/4d3c42d))
+### Features
+
+- add basic functionality ([4d3c42d](https://github.com/supernaut/next-image-storyblok-loader/commit/4d3c42d3b2bddba60f5d654c5e617a7b58073752))
