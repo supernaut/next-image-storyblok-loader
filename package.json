@@ -1,7 +1,7 @@
 {
   "name": "@supernaut/next-image-storyblok-loader",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Storyblok image loader for the Next.js Image component",
   "keywords": [
     "nextjs",
