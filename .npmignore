@@ -30,10 +30,6 @@ renovate.json
 __tests__/
 coverage/
 
-# Build artifacts that shouldn't be published
-*.tgz
-dist/**/*.map
-
 # Keep these
 !dist/
 !package.json
@@ -41,3 +37,7 @@ dist/**/*.map
 !README.md
 !LICENSE
 !CHANGELOG.md
+
+# Build artifacts that shouldn't be published
+*.tgz
+dist/**/*.map
