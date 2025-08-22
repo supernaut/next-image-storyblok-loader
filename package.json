@@ -107,6 +107,7 @@
     "eslint-plugin-perfectionist": "^4.14.0",
     "eslint-plugin-sonarjs": "^3.0.2",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^16.3.0",
     "lefthook": "^1.11.13",
     "next": "^15.3.3",
     "prettier": "3.6.2",

@@ -5,6 +5,7 @@ import prettierConfig from "eslint-config-prettier";
 import perfectionist from "eslint-plugin-perfectionist";
 import sonarjs from "eslint-plugin-sonarjs";
 import unusedImports from "eslint-plugin-unused-imports";
+import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -12,7 +13,7 @@ export default tseslint.config(
   tseslint.configs.strict,
   tseslint.configs.stylistic,
   sonarjs.configs.recommended,
-  perfectionist.configs["recommended-alphabetical"],
+  perfectionist.configs["recommended-natural"],
   {
     ignores: ["node_modules", "dist"],
   },
@@ -57,6 +58,17 @@ export default tseslint.config(
           varsIgnorePattern: "^_",
         },
       ],
+    },
+  },
+  {
+    files: ["**/*.config.js", "**/*.config.mjs", "**/*.config.cjs"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
   prettierConfig,
