@@ -135,7 +135,9 @@ describe("getStoryblokImageFilename", () => {
     });
 
     it("should handle empty string input", () => {
-      expect(() => getStoryblokImageFilename("")).toThrow("Invalid URL");
+      expect(() => getStoryblokImageFilename("")).toThrow(
+        "Invalid Storyblok image URL",
+      );
     });
 
     it("should handle string URL with resize information", () => {

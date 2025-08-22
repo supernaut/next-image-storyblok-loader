@@ -107,5 +107,44 @@ describe("parseStoryblokSrc", () => {
       expect(result.quality).toBeUndefined();
       expect(result.focus).toBeUndefined();
     });
+
+    it("should ignore invalid quality values", () => {
+      const src =
+        "https://a.storyblok.com/f/123456/m/800x600/filters:quality(999)/image.jpg";
+      const result = parseStoryblokSrc(src);
+
+      expect(result.quality).toBeUndefined();
+    });
+
+    it("should ignore unsupported format values", () => {
+      const src =
+        "https://a.storyblok.com/f/123456/m/800x600/filters:format(svg)/image.jpg";
+      const result = parseStoryblokSrc(src);
+
+      expect(result.format).toBeUndefined();
+    });
+
+    it("should handle URL with m but no size before filters", () => {
+      const src =
+        "https://a.storyblok.com/f/123456/m/filters:quality(80)/image.jpg";
+      const result = parseStoryblokSrc(src);
+
+      expect(result.filename).toBe("https://a.storyblok.com/f/123456");
+      expect(result.resize).toBeUndefined();
+      expect(result.quality).toBe(80);
+    });
+
+    it("should handle URL without m but with filters (original asset with appended filters segment)", () => {
+      const src =
+        "https://a.storyblok.com/f/123456/filters:quality(80):format(webp)/image.jpg";
+      const result = parseStoryblokSrc(src);
+
+      // No transformation indicator so filename remains full path up to image.jpg (legacy behavior retains full asset path)
+      expect(result.filename).toBe(
+        "https://a.storyblok.com/f/123456/filters:quality(80):format(webp)/image.jpg",
+      );
+      expect(result.quality).toBe(80);
+      expect(result.format).toBe("webp");
+    });
   });
 });

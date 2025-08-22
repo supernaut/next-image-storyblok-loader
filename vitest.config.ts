@@ -18,7 +18,7 @@ export default defineConfig({
       reporter: ["text", "json", "html"],
     },
     environment: "node",
-    exclude: ["node_modules", "dist"],
+    exclude: ["node_modules", "dist", "src/types"],
     globals: true,
     include: ["src/**/*.{test,spec}.{js,ts}"],
   },
